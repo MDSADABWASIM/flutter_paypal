@@ -139,7 +139,7 @@ class UsePaypalState extends State<UsePaypal> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () {
+      onWillPop: () async{
           final snackBar = SnackBar(
               content: Text(
                   'Use the cancel payment button to abort the transaction.'));
