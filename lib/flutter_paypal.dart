@@ -139,27 +139,17 @@ class UsePaypalState extends State<UsePaypal> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () async {
-        if (pressed < 2) {
-          setState(() {
-            pressed++;
-          });
+      onWillPop: () {
           final snackBar = SnackBar(
               content: Text(
-                  'Press back ${3 - pressed} more times to cancel transaction'));
+                  'Use the cancel payment button to abort the transaction.'));
           ScaffoldMessenger.of(context).showSnackBar(snackBar);
           return false;
-        } else {
-          return true;
-        }
+       
       },
       child: Scaffold(
           appBar: AppBar(
             backgroundColor: const Color(0xFF272727),
-            leading: GestureDetector(
-              child: const Icon(Icons.arrow_back_ios),
-              onTap: () => Navigator.pop(context),
-            ),
             title: Row(
               children: [
                 Expanded(
